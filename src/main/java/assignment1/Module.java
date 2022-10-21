@@ -15,12 +15,15 @@ public class Module {
     private String ID;
     private ArrayList<Student> students;
     private ArrayList<CourseProgramme> courses;
-    private Lecturer lecturer;
+    private ArrayList<Lecturer> lecturers;
 
-    public Module(String moduleName, String ID, ArrayList<Student> students, ArrayList<CourseProgramme> courses, Lecturer lecturer) {
+    public Module(String moduleName, String ID, ArrayList<Student> students, ArrayList<CourseProgramme> courses) {
         this.students = students;
         this.courses = courses;
-        this.lecturer = lecturer;
+    }
+
+    public void addLecturer(Lecturer lecturer){
+        lecturers.add(lecturer);
     }
 
     public String getModuleName() {
@@ -55,11 +58,11 @@ public class Module {
         this.courses = courses;
     }
 
-    public Lecturer getLecturer() {
-        return lecturer;
+    public ArrayList<Lecturer> getLecturers() {
+        return lecturers;
     }
 
-    public void setLecturer(Lecturer lecturer) {
-        this.lecturer = lecturer;
+    public void setLecturer(ArrayList<Lecturer> lecturers) {
+        this.lecturers = lecturers;
     }
 }

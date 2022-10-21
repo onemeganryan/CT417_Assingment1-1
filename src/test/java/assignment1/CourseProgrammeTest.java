@@ -10,21 +10,48 @@ public class CourseProgrammeTest {
 
     @Test
     public void setupCourseTest() {
+        //testing name, modules, students, startTime and endTime attributes for CourseProgramme
+
         //create null arrays to be used later
         ArrayList<CourseProgramme> courses = new ArrayList<>();
         ArrayList<Module> modules = new ArrayList<>();
         ArrayList<Student> students = new ArrayList<>();
 
+        //start and end dates for course
+        DateTime start = new DateTime(2019, 8, 28, 0, 0);
+        DateTime end = new DateTime(2023, 8, 25, 0, 0);
+
+        //COURSEPROGRAMME HAS AN ADDMODULES AND AN ADDSTUDENTS
+        // 1.MAKE COURSE
+        CourseProgramme cp = new CourseProgramme(
+                "Electronic and Computer Engineering",
+                start,
+                end);
+        courses.add(cp);
+
+        //STUDENTS HAS ADDMODULES METHOD
+        // 2.CREATE STUDENTS AND ADD STUDENTS TO COURSE
         DateTime DOB = new DateTime(2000, 1, 1, 0, 0);
         Student student = new Student(
                 "Megan",
                 22,
                 DOB,
                 19222222,
-                courses,
-                modules);
+                courses);
         students.add(student);
 
+        // 3.ADD NEW STUDENT TO COURSEPROGRAMME
+        cp.addStudent(student);
+
+        // 4.CREATE MODULES, ADDING STUDENTS AND COURSES
+        Module module = new Module(
+                "Software Engineering III",
+                "CT417",
+                students,
+                courses);
+        modules.add(module);
+
+        // 5.CREATE LECTURERS, ADDING MODULES
         DOB = new DateTime(1987, 4, 22, 0, 0);
         Lecturer lecturer = new Lecturer(
                 "Dewey Finn",
@@ -32,26 +59,18 @@ public class CourseProgrammeTest {
                 666200,
                 modules);
 
-        Module module = new Module(
-                "Software Engineering III",
-                "CT417",
-                students,
-                courses,
-                lecturer);
-        modules.add(module);
+        // 6.ADD LECTURER TO MODULE
+        module.addLecturer(lecturer);
 
-        //star and end dates for course
-        DateTime start = new DateTime(2019, 8, 28, 0, 0);
-        DateTime end = new DateTime(2023, 8, 25, 0, 0);
+        // 7.ADD MODULES TO STUDENTS
+        student.addModule(module);
+        //also student.setModules(modules);
 
-        CourseProgramme cp = new CourseProgramme(
-                "Electronic and Computer Engineering",
-                modules,
-                students,
-                start,
-                end);
+        // 8.ADD MODULES AND STUDENTS TO COURSEPROGRAMME
+        cp.addModule(module);
+        cp.addStudent(student);
 
-        //check if all arguments are correct
+        //check if all arguments FOR CourseProgramme are correct
         assertEquals("Electronic and Computer Engineering", cp.getCourseName(),
                 "Course name in course programme incorrect");
         assertEquals(modules, cp.getModules(),

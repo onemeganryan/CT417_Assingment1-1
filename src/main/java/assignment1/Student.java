@@ -20,14 +20,17 @@ public class Student {
     private ArrayList<CourseProgramme> courses;
     private ArrayList<Module> modules;
 
-    public Student(String name, int age, DateTime DOB, int ID, ArrayList<CourseProgramme> courses, ArrayList<Module> modules) {
+    public Student(String name, int age, DateTime DOB, int ID, ArrayList<CourseProgramme> courses) {
         this.name = name;
         this.age = age;
         this.DOB = DOB;
         this.courses = courses;
-        this.modules = modules;
         this.ID = ID;
         this.username = getUsername();
+    }
+
+    public void addModule(Module module) {
+        modules.add(module);
     }
 
     public String getUsername() {

@@ -19,12 +19,18 @@ public class CourseProgramme {
     private DateTime startTime;
     private DateTime endTime;
 
-    public CourseProgramme(String courseName, ArrayList<Module> modules, ArrayList<Student> students, DateTime startTime, DateTime endTime) {
-        this.modules = modules;
-        this.students = students;
-
+    public CourseProgramme(String courseName, DateTime startTime, DateTime endTime) {
+        this.courseName = courseName;
         this.startTime = startTime;
         this.endTime = endTime;
+    }
+
+    public void addModule(Module module) {
+        modules.add(module);
+    }
+
+    public void addStudent(Student student) {
+        students.add(student);
     }
 
     public String getCourseName() {

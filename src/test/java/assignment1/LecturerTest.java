@@ -10,6 +10,8 @@ public class LecturerTest {
 
     @Test
     public void setupLecturerTest() {
+        //testing username, name, age, DOB, ID and modules attributes for Student
+
         ArrayList<Module> modules = new ArrayList<>();
 
         //create new lecturer
@@ -27,6 +29,8 @@ public class LecturerTest {
                 "Date of Birth is incorrect for lecturer");
         assertEquals(666200, lecturer.getID(),
                 "Student ID no. is incorrect for lecturer");
+        assertEquals(modules, lecturer.getModules(),
+                "Modules incorrect for lecturer");
     }
 
 }
