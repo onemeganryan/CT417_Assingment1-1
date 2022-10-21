@@ -22,6 +22,21 @@ public class Module {
         this.courses = courses;
     }
 
+    public void addStudent(Student student){
+        students.add(student);
+    }
+
+    //useful to add lists of students in same course
+    public void addStudents(ArrayList<Student> newStudents){
+        for (int i=0; i <= newStudents.size() - 1; i++){
+            students.add(newStudents.get(i));
+        }
+    }
+
+    public void addCourse(CourseProgramme cp){
+        courses.add(cp);
+    }
+
     public void addLecturer(Lecturer lecturer){
         lecturers.add(lecturer);
     }

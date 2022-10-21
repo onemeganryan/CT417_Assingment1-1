@@ -33,6 +33,13 @@ public class Student {
         modules.add(module);
     }
 
+    //useful for adding all modules in a course to a student
+    public void addModules(ArrayList<Module> newModules){
+        for (int i=0; i <= newModules.size() - 1; i++){
+            modules.add(newModules.get(i));
+        }
+    }
+
     public String getUsername() {
         this.username = this.name + "-" + this.age;
         return this.username;

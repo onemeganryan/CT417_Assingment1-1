@@ -29,8 +29,22 @@ public class CourseProgramme {
         modules.add(module);
     }
 
+    // useful for adding all modules in a course
+    public void addModules(ArrayList<Module> newModules){
+        for (int i=0; i <= newModules.size() - 1; i++){
+            modules.add(newModules.get(i));
+        }
+    }
+
     public void addStudent(Student student) {
         students.add(student);
+    }
+
+    // useful to add list of students in same course
+    public void addStudents(ArrayList<Student> newStudents){
+        for (int i=0; i <= newStudents.size() - 1; i++){
+            students.add(newStudents.get(i));
+        }
     }
 
     public String getCourseName() {
